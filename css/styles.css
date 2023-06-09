@@ -30,28 +30,37 @@ section {
 
 section::before {
     content: ' ';
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 10%;
-    bottom: 0%;
+    top: 0;
     background: rgba(0, 0, 0, 0.1);
     z-index: 10;
-    border-top: 0.1em solid rgba(255, 255, 255, 0.5);
+    border-bottom: 0.1em solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(0.5em);
 
 }
 
 .Socials {
-    position: fixed;
+    position: relative;
     display: flex;
-    bottom: -2%;
+    top: -40%;
     z-index: 1;
+    transition: top 0.4s, z-index 0.4s, transform 0.4s;
+}
+.Socials:hover {
+    top: -38%;
+    transform:translateY(-10%);
+    transition-delay: 0s, 0s, 0.4s;
+    z-index: 11;
+
+    
 }
 
 .Socials li {
     position: relative;
     list-style: none;
-    margin: 2em;
+    margin: 1em;
 }
 
 .Socials li a {
@@ -81,8 +90,8 @@ section::before {
 
 .Socials li a:hover {
     transition-delay: 0s, 0.4s, 0.4s;
-    top: -1.1em;
-    transform: translateY(1.1em);
+    top: 1.1em;
+    transform: translateY(-1.1em);
     z-index: 11;
     cursor: none;
 }
